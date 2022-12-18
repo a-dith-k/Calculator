@@ -32,6 +32,7 @@ public class Calculator implements ActionListener {
 	JButton magicButton;
 	boolean isOperatorclicked=false;
 	String oldValue;
+	String newValue;
 		 public Calculator( ) {
 		jf=new JFrame("Calculator");
 		jf.setLayout(null );
@@ -181,6 +182,12 @@ public class Calculator implements ActionListener {
 	 }
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		
+		float oldValuef=Float.parseFloat(oldValue);
+		float newValuef=Float.parseFloat(newValue);
+		float result = 0;
+		
 		if(e.getSource()==sevenButton) {
 			if(isOperatorclicked) {
 				displayLabel.setText("7");
@@ -290,7 +297,7 @@ public class Calculator implements ActionListener {
 		}
 		else if(e.getSource()==addButton) {
 			isOperatorclicked=true;
-			
+                  result=oldValuef+newValuef;
 		}
 		else if(e.getSource()==substractButton) {
 			isOperatorclicked=true;
@@ -305,10 +312,10 @@ public class Calculator implements ActionListener {
 			isOperatorclicked=true;
 		}
 		else if(e.getSource()==equalButton) {
-			String newValue=displayLabel.getText();
-			float oldValuef=Float.parseFloat(oldValue);
-			float newValuef=Float.parseFloat(newValue);
-			float result=oldValuef+newValuef;
+			newValue=displayLabel.getText();
+			
+			
+			
 			displayLabel.setText(result+"");
 			
 		}
